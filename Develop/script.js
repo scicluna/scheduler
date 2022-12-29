@@ -1,34 +1,21 @@
-// Wrap all code that interacts with the DOM in a call to jQuery to ensure that
-// the code isn't run until the browser has finished rendering all the elements
-// in the html.
+//run this function on load
 $(function () {
-  let events = JSON.parse(localStorage.getItem("events"))
-    if (!events){
-      events = []
-    }
+  let events0 = localStorage.getItem("events0")
+  let events1 = localStorage.getItem("events1")
+  let events2 = localStorage.getItem("events2")
+  let events3 = localStorage.getItem("events3")
+  let events4 = localStorage.getItem("events4")
+  let events5 = localStorage.getItem("events5")
+  let events6 = localStorage.getItem("events6")
+  let events7 = localStorage.getItem("events7")
+  let events8 = localStorage.getItem("events8")
+  let events = [events0, events1, events2, events3, events4, events5, events6, events7, events8]
+
   writeEvents(events)
-  
-  // TODO: Add a listener for click events on the save button. This code should
-  // use the id in the containing time-block as a key to save the user input in
-  // local storage. HINT: What does `this` reference in the click listener
-  // function? How can DOM traversal be used to get the "hour-x" id of the
-  // time-block containing the button that was clicked? How might the id be
-  // useful when saving the description in local storage?
   $(".saveBtn").each(function(){
-    $(this).on("click", saveEvents)
+    $(this).on("click", saveEvent)
   })
-  // TODO: Add code to apply the past, present, or future class to each time
-  // block by comparing the id to the current hour. HINTS: How can the id
-  // attribute of each time-block be used to conditionally add or remove the
-  // past, present, and future classes? How can Day.js be used to get the
-  // current hour in 24-hour time?
   hourCompare()
-  //
-  // TODO: Add code to get any user input that was saved in localStorage and set
-  // the values of the corresponding textarea elements. HINT: How can the id
-  // attribute of each time-block be used to do this?
-  //
-  // TODO: Add code to display the current date in the header of the page.
   displayDate()
 });
 
@@ -59,20 +46,20 @@ function hourCompare(){
   })
 }
 
-function saveEvents(e){
-  let textElements = $(".description")
-
-    events = []
-  for (let i=0; i<textElements.length; i++){
-    events[i] = textElements[i].value
+//save an event when its corresponding save button is pressed
+function saveEvent(e){
+  let datablock = $(this).data("button")
+  let textElement = $(this).siblings(".description")
+  let currentevent = textElement.val()
+  localStorage.setItem(`events${datablock}`, currentevent)
   }
-  
-  localStorage.setItem("events", JSON.stringify(events))
-}
 
+//write out our events on pageload to our planner
 function writeEvents(events){
   let textEls = $(".description")
   for (let i=0; i<textEls.length; i++){
+    if(events[i] !== undefined){
     textEls[i].value = events[i]
+    }
   }
 }
