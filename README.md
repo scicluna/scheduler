@@ -4,8 +4,8 @@ The purpose of this project is to create a workday scheduler that blocks off tim
 
 ## Description
 
-![Website Screenshot](./assets/Screenshot%202022-12-11%20115421.png)
-Every hourblock is saved seperately, and is color-coded based on the current time.
+![Website Screenshot](./Assets/Screenshot%202023-01-02%20140732.png)
+Every hourblock is saved seperately, and is color-coded based on the current time. The current date is always displayed on the top of the page.
 
 ## Getting Started
 
@@ -17,7 +17,7 @@ There are no special dependencies to view this project.
 
 ### Installing
 
-Just unzip and click on index.html or open it in your browser using this link: https://scicluna.github.io/password-generator/
+Just unzip and click on index.html or open it in your browser using this link: https://scicluna.github.io/scheduler/
 
 ### Executing program
 
@@ -31,5 +31,5 @@ For further help in using this website, or in learning about html/css, please em
 
 John Sciclcuna  
 sciclunajl@gmail.com  
-https://github.com/scicluna/password-generator  
-https://scicluna.github.io/password-generator/
+https://github.com/scicluna/scheduler  
+https://scicluna.github.io/scheduler/
