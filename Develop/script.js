@@ -1,5 +1,6 @@
 //run this function on load
 $(function () {
+  //grabbing stored events from local storage
   let events0 = localStorage.getItem("events0")
   let events1 = localStorage.getItem("events1")
   let events2 = localStorage.getItem("events2")
@@ -9,17 +10,22 @@ $(function () {
   let events6 = localStorage.getItem("events6")
   let events7 = localStorage.getItem("events7")
   let events8 = localStorage.getItem("events8")
+  //setting the events into an array for looping purposes
   let events = [events0, events1, events2, events3, events4, events5, events6, events7, events8]
 
+  //writing our events to the screen
   writeEvents(events)
+  //initializing our save buttons
   $(".saveBtn").each(function(){
     $(this).on("click", saveEvent)
   })
+  //styling our hour blocks
   hourCompare()
+  //displaying the current date
   displayDate()
 });
 
-//display the date
+//display the current date
 function displayDate(){
   let date = $("#date")
   let today = dayjs().format("MMM DD YYYY")
@@ -58,6 +64,7 @@ function saveEvent(e){
 function writeEvents(events){
   let textEls = $(".description")
   for (let i=0; i<textEls.length; i++){
+    //writes an event only if its not undefined
     if(events[i] !== undefined){
     textEls[i].value = events[i]
     }
