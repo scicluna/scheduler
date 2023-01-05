@@ -4,7 +4,7 @@ The purpose of this project is to create a workday scheduler that blocks off tim
 
 ## Description
 
-![Website Screenshot](./Assets/Screenshot%202023-01-02%20140732.png)
+![Website Screenshot](./Assets/img/Screenshot%202023-01-02%20140732.png)
 Every hourblock is saved seperately, and is color-coded based on the current time. The current date is always displayed on the top of the page.
 
 ## Getting Started

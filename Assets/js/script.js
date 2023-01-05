@@ -28,8 +28,9 @@ $(function () {
 //display the current date
 function displayDate(){
   let date = $("#date")
-  let today = dayjs().format("MMM DD YYYY")
-  date.append(today)
+  date.text("")
+  let today = dayjs().format("MMM DD YYYY    HH:mm:ss")
+  date.text(today)
 }
 
 //compare hours and apply classes to each div row
@@ -70,3 +71,9 @@ function writeEvents(events){
     }
   }
 }
+
+//keep the time and coloration live
+setInterval(function(){
+  hourCompare()
+  displayDate()
+}, 1000)
